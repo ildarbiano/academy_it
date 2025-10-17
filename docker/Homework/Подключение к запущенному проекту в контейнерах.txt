@@ -1,0 +1,36 @@
+ilya@client-ubuntu:~/dockers_T1$ 	docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+65642a7f83cb   frontend:v1.0   "/docker-entrypoint.…"   21 minutes ago   Up 21 minutes   0.0.0.0:3000->80/tcp, [::]:3000->80/tcp       frontend
+48edf1f04495   backend:v1.0    "java org.springfram…"   21 minutes ago   Up 21 minutes   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp   backend
+9fa5c4ac00ba   postgres:15     "docker-entrypoint.s…"   21 minutes ago   Up 21 minutes   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   postgres
+ilya@client-ubuntu:~/dockers_T1$ 	docker volume ls
+DRIVER    VOLUME NAME
+local     1adc8eee456dcf460584668af2e82ddb929bb5a906472ebc6cc8b748370856eb
+local     6bc6f370ccc2eb973d97471c0c50d32d51838f32918e134a550b3fd176b8ff16
+local     7bf43304d6ad344d9b2ef1a3a1ce53b572a250976be460d80aad72c7c6891e7b
+local     8c1ed1d2ed01454c41317e89ed723cbea9419f6efc69c8883dc28de404a3bbfe
+local     14d4adf56c2fa01b984e78873fcd357e1e83d4f70a2be0336c15b700332d0ea8
+local     029f3f2c07eefb445c84d045336534070f6fba6c55e954f715d0c097fcdb782b
+local     42ed2bf146637b5e32fa1081cc1ed208e6817961e1bfb099d221725a2a149d46
+local     61f35d8f4d9800f88cc7acd56ea32430aabc1582a16a687bcb102eb2271480ad
+local     91a73e542087981116b0b610fe8394068046fb003736761d0a79c7aab699777b
+local     7802c4aa7b4365f5254722a254d028b11c95378755262242090717fbbfceedee
+local     c1dda0b81d9e87157085416ce6f1cfb2c9e286004e38baae250700ebb25a9ab2
+local     ce28d20009a2453da7a9d012acbe7e276ebf3606bd00ef7e801b1e1f2da31268
+local     e1e0699e73d51be4a79031198c94235b983b82e79c977da782ff8557679af754
+local     f3ec11971523f9c578a300b20d93b7ff797d03444e2cae244eb3c253d3bcb9cd
+local     postgres-data
+local     postgres_data
+ilya@client-ubuntu:~/dockers_T1$ 	docker network ls
+NETWORK ID     NAME               DRIVER    SCOPE
+d1e829dedac8   bridge             bridge    local
+a471b7789105   host               host      local
+2eb22e5c79fc   network-backend    bridge    local
+c284857bf16c   network-frontend   bridge    local
+d83c1b8da3b3   none               null      local
+
+Подключение к backend
+ilya@client-ubuntu:~/dockers_T1$ 	curl http://localhost:8080/backend/api/v1/public/items
+[]					возвращает ничего.
+Подключение к frontend через browser 	http://localhost:3000/
+
