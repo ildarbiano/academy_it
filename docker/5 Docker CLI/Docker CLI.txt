@@ -1,6 +1,11 @@
-docker pull postgres:13		# from dockerhub
-docker images			#
-docker image ls
+docker pull postgres:13    	# from dockerhub
+docker pull nginx	    	# from dockerhub
+
+docker images      		# список образов
+docker rmi <name>:<TAG>    	# удаление конкретного образа
+docker rmi <IMAGE_ID>    	# удаление конкретного образа
+docker image prune    		# удаление всех неиспользуемых образов. Очистка от шлака.
+
 docker run -d \			# запуск как демон
 	-- name posgressIlya \	# bestparctice называть контейнеры
 	-p 5432:5432 \		# Docker_port:Port_HostMachine
